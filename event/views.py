@@ -32,7 +32,7 @@ def event_attendee_view(request):
             # Send email with HTML template
             subject = 'Thank you for registering'
             message = f'Thank you for registering for the event! Your unique ID is: {attendee.unique_id}'
-            from_email = 'your@example.com'  # Replace with your email address
+            from_email = 'yakubayatoo@gmail.com'  # Replace with your email address
             recipient_list = [form.cleaned_data['email']]
             send_mail(subject, message, from_email, recipient_list, fail_silently=True, html_message=get_html_template(attendee))
 

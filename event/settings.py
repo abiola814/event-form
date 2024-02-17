@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'event.urls'
@@ -113,16 +114,18 @@ USE_I18N = True
 
 USE_TZ = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'your-smtp-host.com'  # Replace with your SMTP host
-EMAIL_PORT = 587  # Replace with your SMTP port
-EMAIL_USE_TLS = True  # Set to True if your SMTP server requires TLS
-EMAIL_HOST_USER = 'your-email@example.com'  # Replace with your email address
-EMAIL_HOST_PASSWORD = 'your-email-password' 
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp-relay.brevo.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'yakubayatoo@gmail.com'
+EMAIL_HOST_PASSWORD = 'xRStGXdAFOhnU94z'
+DEFAULT_FROM_EMAIL = 'no-reply@civicnexa.com'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
